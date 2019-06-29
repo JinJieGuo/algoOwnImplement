@@ -4,7 +4,7 @@ package exampleCode.array;
  * 1) 数组的插入、删除、按照下标随机访问操作；
  * 2）数组中的数据是int类型的；
  *
- * Author: Zheng
+ * Author: Guojinjie
  * modify: xing, Gsealy
  */
 public class Array {
@@ -51,6 +51,7 @@ public class Array {
         }
         // 位置合法
         for( int i = count; i > index; --i){
+            System.out.println(i);
             data[i] = data[i - 1];
         }
         data[index] = value;
@@ -62,6 +63,7 @@ public class Array {
         if (index<0 || index >=count) return false;
         //从删除位置开始，将后面的元素向前移动一位
         for (int i=index+1; i<count; ++i){
+            System.out.println(i);
             data[i-1] = data[i];
         }
         //删除数组末尾元素  这段代码不需要也可以
@@ -81,6 +83,29 @@ public class Array {
         System.out.println();
     }
 
+    /***
+     * NOTES
+     * @param args
+     * @author guojinjie
+     *
+     * 复习for循环:
+     *      ep:
+     *      for(expression1；expression2；expression3){
+     *          expression4;
+     *      }
+     *      as:
+     *      expression1 -> expression2 -> expression4 -> expression3 -> expression2 -> expression4 …………………… ；
+     *
+     * i++与++i;
+     *      i++:先赋值再运算
+     *      ++i:先运算再赋值
+     *      er:只有涉及到赋值操作时才有区别 作为单独语句时只有运算效果
+     *
+     */
+
+
+
+
     public static void main(String[] args) {
         Array array = new Array(5);
         array.printAll();
@@ -88,8 +113,9 @@ public class Array {
         array.insert(0, 4);
         array.insert(1, 5);
         array.insert(3, 9);
-        array.insert(3, 10);
+        array.insert(0, 10);
         //array.insert(3, 11);
+        array.delete(1);
         array.printAll();
     }
 }
