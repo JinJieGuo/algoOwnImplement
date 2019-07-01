@@ -15,13 +15,25 @@ public class LinkedListAlgo {
   public static Node reverse(Node list) {
     Node curr = list, pre = null;
     while (curr != null) {
+      //获取下一个节点
       Node next = curr.next;
+      //当前节点的插入结果节点的首部
       curr.next = pre;
+      //结果链表的起始为当前节点
       pre = curr;
+      //待反转链表后移一位
       curr = next;
     }
     return pre;
   }
+
+
+
+
+
+
+
+
 
   // 检测环
   public static boolean checkCircle(Node list) {
