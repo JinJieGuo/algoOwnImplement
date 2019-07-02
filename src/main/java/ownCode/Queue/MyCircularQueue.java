@@ -69,6 +69,9 @@ public class MyCircularQueue {
     public int Rear() {
         //队列为空 返回-1
         if (isEmpty()) return -1;
+
+        //tail 所指向的数组下标为空 存在真实有数据的队列尾部下标为 tail - 1
+
         int weibu = tail -1;
         if (tail == 0)
             weibu = itemSize -1;
