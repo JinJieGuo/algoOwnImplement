@@ -28,14 +28,13 @@ public class LinkedListAlgo {
   }
 
 
-
-
-
-
-
-
-
-  // 检测环
+    /**
+     * 快慢节点  检测环
+     * 环链表 slow节点遍历完一遍时 fast节点一定等于slow节点
+     * @Author gjj
+     * @param list
+     * @return
+     */
   public static boolean checkCircle(Node list) {
     if (list == null) return false;
 
@@ -89,6 +88,14 @@ public class LinkedListAlgo {
     return head;
   }
 
+    /***
+     * 1.先将链表后移K个节点记为链表b
+     * 2.原始链表a与链表b同时遍历 当b结束时 a位置刚好为倒数K
+     *
+     * @param list
+     * @param k
+     * @return
+     */
   // 删除倒数第K个结点
   public static Node deleteLastKth(Node list, int k) {
     Node fast = list;

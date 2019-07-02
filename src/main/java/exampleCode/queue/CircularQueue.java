@@ -38,8 +38,40 @@ public class CircularQueue {
   public void printAll() {
     if (0 == n) return;
     for (int i = head; i % n != tail; ++i) {
-      System.out.print(items[i] + " ");
+      System.out.print(items[i % n] + " ");
     }
     System.out.println();
   }
+
+
+  public static void main(String[] args) {
+
+
+    /***
+     * 当队列满时，图中的 tail 指向的位置实际上是没有存储数据...
+     * 循环队列会浪费一个数组的存储空间
+     */
+
+    //数组大小为n 循环队列的大小为n-1
+    CircularQueue circularQueue = new CircularQueue(5);
+
+    // head表示队头下标，tail表示队尾下标
+
+    circularQueue.enqueue("一");//success head:0 tail:1
+    circularQueue.enqueue("一");//success head:0 tail:2
+    circularQueue.enqueue("一");//success head:0 tail:3
+    circularQueue.enqueue("一");//success head:0 tail:4
+    circularQueue.enqueue("一");//fail 队列满了
+    circularQueue.dequeue();         //success head:1 tail:4
+    circularQueue.dequeue();         //success head:2 tail:4
+    circularQueue.enqueue("二");//success head:2 tail:0
+    circularQueue.enqueue("二");//success head:2 tail:1
+    circularQueue.enqueue("二");//fail 队列满了
+
+    circularQueue.printAll();
+    //result : 一 一 二 二
+
+
+  }
+
 }
