@@ -7,8 +7,10 @@ public class BubbleSort {
 
 
 
-    public static int[] bubbleSort(int[] a,int n){
+    public static int[] bubbleSort(int[] a){
+        int n =  a.length;
         if (n <= 1) return a;
+        int temp = 0;
 
         for (int i = 0; i < n; i++) {
 
@@ -16,7 +18,7 @@ public class BubbleSort {
 
             for (int j = 0; j < n-i-1 ; j++) {
                 if (a[j] > a[j+1]){
-                    int temp = a[j];
+                    temp = a[j];
                     a[j] = a[j+1];
                     a[j+1] = temp;
                     flag = true;
@@ -53,8 +55,7 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         int[] a = {0,4,5,5,7,8,2,3,4};
-        int n = 9;
-        int[] ints = bubbleSort(a, n);
+        int[] ints = bubbleSort(a);
 
         for (int anInt : ints) {
             System.out.println(anInt);
